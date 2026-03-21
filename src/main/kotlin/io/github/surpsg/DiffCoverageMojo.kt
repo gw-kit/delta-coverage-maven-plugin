@@ -114,7 +114,11 @@ class DiffCoverageMojo : AbstractMojo() {
             failOnViolation = violations.failOnViolation
             violationRules += if (isMinCoverageSet) {
                 CoverageEntity.entries.map { entity ->
-                    ViolationRule { coverageEntity = entity; minCoverageRatio = violations.minCoverage }
+                    ViolationRule {
+                        coverageEntity = entity
+                        minCoverageRatio = violations.minCoverage
+                        entityCountThreshold = violations.entityCountThreshold.takeIf { it > 0 }
+                    }
                 }
             } else {
                 buildCoverageRules()
@@ -139,7 +143,11 @@ class DiffCoverageMojo : AbstractMojo() {
     )
         .filter { it.second > 0.0 }
         .map { (entity, value) ->
-            ViolationRule { coverageEntity = entity; minCoverageRatio = value }
+            ViolationRule {
+                coverageEntity = entity
+                minCoverageRatio = value
+                entityCountThreshold = violations.entityCountThreshold.takeIf { it > 0 }
+            }
         }
         .toSet()
 

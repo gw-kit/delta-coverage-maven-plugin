@@ -43,18 +43,24 @@ The plugin does the next steps:
                 </diffSource>
                 
                 <!-- Optional -->
-                <violations> 
+                <violations>
                     <!-- Default 'false'. Fail build if violation rules weren't met  -->
                     <failOnViolation>true</failOnViolation>
 
                     <!-- Sets min coverage rule for: instructions, lines, branches -->
                     <minCoverage>0.7</minCoverage>
-                    
+
                     <!-- Each rule could be configured separately -->
                     <!-- Default '0.0'. If value is '0.0' then the rule is disabled -->
                     <minLines>0.1</minLines>
                     <minBranches>0.7</minBranches>
                     <minInstructions>1.0</minInstructions>
+
+                    <!-- Optional. Default '0' (disabled).
+                         If the number of changed entities is below this threshold,
+                         coverage violation checks are skipped.
+                         Useful to avoid failures on small PRs with few changed lines. -->
+                    <entityCountThreshold>20</entityCountThreshold>
                 </violations>
 
                 <!-- Optional. Exec files include pattern. By default 'build/jacoco.exec' file is used -->

@@ -1,5 +1,10 @@
 # Diff-Coverage Maven plugin
 
+## 1.2.0
+
+### Added
+- `entityCountThreshold` parameter in `violations` configuration: if the number of changed entities is below the threshold, the coverage check for that entity is skipped
+
 ## 1.1.0
 
 - Added Java 25 class files support
