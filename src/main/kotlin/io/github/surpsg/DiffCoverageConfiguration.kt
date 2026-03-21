@@ -19,8 +19,13 @@ class ViolationsConfiguration(
     var minBranches: Double = 0.0,
     var minInstructions: Double = 0.0,
 
-    var minCoverage: Double = MIN_COVERAGE_PROPERTY_DEFAULT
-)
+    var minCoverage: Double = MIN_COVERAGE_PROPERTY_DEFAULT,
+
+    var entityCountThreshold: Int = 0
+) {
+    val entityCountThresholdOrNull: Int?
+        get() = entityCountThreshold.takeIf { it > 0 }
+}
 
 class Report(
     var type: String? = null,

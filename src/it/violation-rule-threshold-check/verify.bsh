@@ -1,0 +1,9 @@
+import java.io.*;
+import org.codehaus.plexus.util.*;
+
+String expectedIgnoredMsg = "was ignored because threshold=20";
+
+String buildLog = FileUtils.fileRead( new File( basedir, "build.log" ) );
+if ( !buildLog.contains( expectedIgnoredMsg ) ) {
+    throw new RuntimeException( "Expected coverage violations to be ignored due to entityCountThreshold, but message not found: " + expectedIgnoredMsg );
+}
