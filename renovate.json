@@ -4,5 +4,5 @@
     "config:recommended"
   ],
   "automerge": true,
-  "baseBranches": ["develop"]
+  "baseBranches": ["master"]
 }
