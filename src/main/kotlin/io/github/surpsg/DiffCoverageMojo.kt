@@ -117,7 +117,7 @@ class DiffCoverageMojo : AbstractMojo() {
                     ViolationRule {
                         coverageEntity = entity
                         minCoverageRatio = violations.minCoverage
-                        entityCountThreshold = violations.entityCountThresholdOrNull
+                        entityCountThreshold = violations.entityCountThresholdForEntity(entity)
                     }
                 }
             } else {
@@ -146,7 +146,7 @@ class DiffCoverageMojo : AbstractMojo() {
             ViolationRule {
                 coverageEntity = entity
                 minCoverageRatio = value
-                entityCountThreshold = violations.entityCountThresholdOrNull
+                entityCountThreshold = violations.entityCountThresholdForEntity(entity)
             }
         }
         .toSet()

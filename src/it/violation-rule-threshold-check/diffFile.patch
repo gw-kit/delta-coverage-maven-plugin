@@ -1,14 +1,17 @@
-===================================================================
---- a/src/main/java/com/test/Example.java	(revision 9e78667391946d3461759f5589b67d3a676d8ce7)
-+++ b/src/main/java/com/test/Example.java	(date 1593433398791)
-@@ -5,7 +5,10 @@
+--- a/src/it/violation-rule-threshold-check/src/main/java/com/test/Example.java	(revision c683034bc0fb2bd654d7d2b76e5763d2b91fdf24)
++++ b/src/it/violation-rule-threshold-check/src/main/java/com/test/Example.java	(date 1774712720505)
+@@ -3,10 +3,10 @@
+ public class Example {
+
  	public void sayHello(boolean a) {
- 		if (a) {
- 			System.out.println("if");
+-		if (a) {
+-			System.out.println("if");
+-		} else {
+-			System.out.println("else");
++		if (a) {
++			System.out.println("if");
 +		} else {
 +			System.out.println("else");
  		}
-+		System.out.println("return");
+ 		System.out.println("return");
  	}
-
- }

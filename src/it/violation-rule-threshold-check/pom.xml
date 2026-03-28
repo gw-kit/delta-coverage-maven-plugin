@@ -47,7 +47,9 @@
           <violations>
             <failOnViolation>true</failOnViolation>
             <minCoverage>1.0</minCoverage>
-            <entityCountThreshold>20</entityCountThreshold>
+            <entityCountThresholdLines>5</entityCountThresholdLines>
+            <entityCountThresholdBranches>3</entityCountThresholdBranches>
+            <entityCountThresholdInstructions>10</entityCountThresholdInstructions>
           </violations>
 
           <reports>

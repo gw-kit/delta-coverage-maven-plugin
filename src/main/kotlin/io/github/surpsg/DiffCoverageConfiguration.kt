@@ -1,5 +1,6 @@
 package io.github.surpsg
 
+import io.github.surpsg.deltacoverage.config.CoverageEntity
 import java.io.File
 import java.net.URL
 
@@ -21,10 +22,22 @@ class ViolationsConfiguration(
 
     var minCoverage: Double = MIN_COVERAGE_PROPERTY_DEFAULT,
 
-    var entityCountThreshold: Int = 0
+    var entityCountThreshold: Int = 0,
+    var entityCountThresholdLines: Int = 0,
+    var entityCountThresholdBranches: Int = 0,
+    var entityCountThresholdInstructions: Int = 0,
 ) {
     val entityCountThresholdOrNull: Int?
         get() = entityCountThreshold.takeIf { it > 0 }
+
+    fun entityCountThresholdForEntity(entity: CoverageEntity): Int? {
+        val perEntity = when (entity) {
+            CoverageEntity.LINE -> entityCountThresholdLines
+            CoverageEntity.BRANCH -> entityCountThresholdBranches
+            CoverageEntity.INSTRUCTION -> entityCountThresholdInstructions
+        }
+        return perEntity.takeIf { it > 0 } ?: entityCountThresholdOrNull
+    }
 }
 
 class Report(

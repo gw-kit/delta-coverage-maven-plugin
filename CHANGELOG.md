@@ -1,5 +1,11 @@
 # Diff-Coverage Maven plugin
 
+## 1.3.0
+
+### Added
+- Per-entity `entityCountThreshold` parameters in `violations` configuration: `entityCountThresholdLines`, `entityCountThresholdBranches`, `entityCountThresholdInstructions`. 
+  These override the global `entityCountThreshold` for the respective coverage entity.
+
 ## 1.2.0
 
 ### Added
