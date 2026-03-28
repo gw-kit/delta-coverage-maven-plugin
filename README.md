@@ -61,6 +61,12 @@ The plugin does the next steps:
                          coverage violation checks are skipped.
                          Useful to avoid failures on small PRs with few changed lines. -->
                     <entityCountThreshold>20</entityCountThreshold>
+
+                    <!-- Optional. Per-entity thresholds that override the global entityCountThreshold
+                         for the respective coverage entity. -->
+                    <entityCountThresholdLines>20</entityCountThresholdLines>
+                    <entityCountThresholdBranches>10</entityCountThresholdBranches>
+                    <entityCountThresholdInstructions>15</entityCountThresholdInstructions>
                 </violations>
 
                 <!-- Optional. Exec files include pattern. By default 'build/jacoco.exec' file is used -->

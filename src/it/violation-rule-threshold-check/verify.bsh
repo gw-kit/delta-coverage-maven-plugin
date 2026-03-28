@@ -1,9 +1,17 @@
 import java.io.*;
 import org.codehaus.plexus.util.*;
 
-String expectedIgnoredMsg = "was ignored because threshold=20";
+String expectedLinesIgnoredMsg = "was ignored because threshold=5";
+String expectedBranchesIgnoredMsg = "was ignored because threshold=3";
+String expectedInstrIgnoredMsg = "was ignored because threshold=10";
 
 String buildLog = FileUtils.fileRead( new File( basedir, "build.log" ) );
-if ( !buildLog.contains( expectedIgnoredMsg ) ) {
-    throw new RuntimeException( "Expected coverage violations to be ignored due to entityCountThreshold, but message not found: " + expectedIgnoredMsg );
+if ( !buildLog.contains( expectedLinesIgnoredMsg ) ) {
+    throw new RuntimeException( "Expected lines check to be ignored due to entityCountThresholdLines, but message not found: " + expectedLinesIgnoredMsg );
+}
+if ( !buildLog.contains( expectedBranchesIgnoredMsg ) ) {
+    throw new RuntimeException( "Expected branches check to be ignored due to entityCountThresholdBranches, but message not found: " + expectedBranchesIgnoredMsg );
+}
+if ( !buildLog.contains( expectedInstrIgnoredMsg ) ) {
+    throw new RuntimeException( "Expected instr check to be ignored due to entityCountThresholdInstructions, but message not found: " + expectedInstrIgnoredMsg );
 }
